@@ -237,6 +237,10 @@
             letter-spacing: 1px;
         }
         
+        .scratch-reveal.revealed .scratch-content-hidden {
+            display: none !important;
+        }
+        
         .scratch-content-revealed {
             font-size: 16px;
             color: var(--ink-1);
@@ -518,6 +522,7 @@
                 this.canvas = document.getElementById(canvasId);
                 this.ctx = this.canvas.getContext('2d');
                 this.isDrawing = false;
+                this.isRevealed = false;
                 this.revealThreshold = 0.5;
                 this.scratchLabel = options.scratchLabel || 'Scratch me!';
                 this.onReveal = options.onReveal || null;
@@ -561,7 +566,7 @@
             }
             
             draw(e) {
-                if (!this.isDrawing) return;
+                if (!this.isDrawing || this.isRevealed) return;
                 
                 e.preventDefault();
                 const rect = this.canvas.getBoundingClientRect();
@@ -582,6 +587,7 @@
             }
             
             checkReveal() {
+                if (this.isRevealed) return;
                 const imageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
                 const data = imageData.data;
                 let transparent = 0;
@@ -598,6 +604,8 @@
             }
             
             reveal() {
+                if (this.isRevealed) return;
+                this.isRevealed = true;
                 this.canvas.style.display = 'none';
                 const hidden = this.element.querySelector('.scratch-content-hidden');
                 const revealed = this.element.querySelector('.scratch-content-revealed');
@@ -644,6 +652,7 @@
             scratchLabel: 'Scratch for countdown',
             onReveal: () => {
                 updateCountdown();
+                if (countdownTimer) clearInterval(countdownTimer);
                 countdownTimer = setInterval(updateCountdown, 1000);
             }
         });
