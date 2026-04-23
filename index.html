@@ -12,18 +12,19 @@
         }
         
         :root {
-            --cream-1: #fff8ec;
-            --cream-2: #f7e9d3;
-            --cream-3: #f2dfc2;
-            --cream-4: #e8cfa9;
-            --ink-1: #3f3224;
-            --ink-2: #6f5a44;
-            --line-soft: #e8d9c2;
+            --cream-1: #fffaf3;
+            --cream-2: #f4ead9;
+            --cream-3: #ecdcc2;
+            --cream-4: #d8c0a0;
+            --ink-1: #372c21;
+            --ink-2: #6a5741;
+            --line-soft: #e6d7c0;
+            --serif-elegant: "Times New Roman", Georgia, serif;
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--cream-2) 0%, var(--cream-1) 60%, #fffdf7 100%);
+            background: linear-gradient(150deg, #f6eedf 0%, var(--cream-1) 50%, #fffdf8 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,12 +36,13 @@
             background: #fffdf8;
             width: 100%;
             max-width: 600px;
-            box-shadow: 0 14px 40px rgba(93, 65, 30, 0.12);
+            border-radius: 14px;
+            box-shadow: 0 18px 48px rgba(71, 46, 20, 0.1);
             overflow: hidden;
         }
         
         .header {
-            background: linear-gradient(to bottom, #fdf5e7, #f9efd9);
+            background: linear-gradient(to bottom, #fdf6ea, #f7eddd);
             padding: 60px 40px;
             text-align: center;
             border-bottom: 1px solid var(--line-soft);
@@ -66,17 +68,18 @@
         
         .names {
             font-size: 48px;
-            font-weight: 300;
+            font-family: var(--serif-elegant);
+            font-weight: 400;
             color: var(--ink-1);
             margin-bottom: 10px;
-            letter-spacing: 1px;
+            letter-spacing: 0.7px;
             animation: fadeInUp 1s ease-out 0.4s both;
         }
         
         .ampersand {
             font-size: 28px;
-            color: #9b7d56;
-            font-weight: 300;
+            color: #a98b63;
+            font-weight: 400;
             margin: 10px 0;
             animation: fadeInScale 0.8s ease-out 0.6s both;
         }
@@ -93,9 +96,9 @@
         .photo-container {
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 10px;
             aspect-ratio: 3/4;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             animation: fadeInScale 0.8s ease-out both;
         }
         
@@ -165,7 +168,7 @@
         .section-title {
             font-size: 11px;
             letter-spacing: 2px;
-            color: #a07f57;
+            color: #977550;
             text-transform: uppercase;
             margin-bottom: 15px;
             font-weight: 500;
@@ -188,7 +191,7 @@
         .divider {
             width: 30px;
             height: 1px;
-            background: #d9c3a0;
+            background: #d3bb98;
             margin: 30px auto;
             animation: expandWidth 0.8s ease-out forwards;
             transform-origin: center;
@@ -203,10 +206,10 @@
         
         .scratch-reveal {
             position: relative;
-            background: linear-gradient(145deg, #f7ead4, #f2e0bf);
-            border: 2px solid #e2cfaf;
+            background: linear-gradient(145deg, #f7ecd7, #f2e3ca);
+            border: 1px solid #dec9a9;
             border-radius: 8px;
-            padding: 30px 20px;
+            padding: 28px 18px;
             text-align: center;
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="%23666"/></svg>') 16 16, auto;
             user-select: none;
@@ -217,9 +220,9 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(120deg, transparent 35%, rgba(255, 255, 255, 0.35) 50%, transparent 65%);
+            background: linear-gradient(120deg, transparent 38%, rgba(255, 255, 255, 0.25) 50%, transparent 62%);
             transform: translateX(-120%);
-            animation: shimmer 3.8s ease-in-out infinite;
+            animation: shimmer 6s ease-in-out infinite;
             pointer-events: none;
         }
         
@@ -249,23 +252,19 @@
         }
         
         .countdown-item {
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid #e2cfaf;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid #dfccaf;
             border-radius: 8px;
-            padding: 9px 4px;
-            animation: floatSoft 4s ease-in-out infinite;
+            padding: 10px 4px 9px;
         }
-        
-        .countdown-item:nth-child(2) { animation-delay: 0.2s; }
-        .countdown-item:nth-child(3) { animation-delay: 0.4s; }
-        .countdown-item:nth-child(4) { animation-delay: 0.6s; }
         
         .countdown-value {
             display: block;
             font-size: 22px;
             line-height: 1;
             color: var(--ink-1);
-            font-weight: 600;
+            font-weight: 500;
+            font-family: var(--serif-elegant);
         }
         
         .countdown-label {
@@ -273,7 +272,7 @@
             margin-top: 6px;
             font-size: 10px;
             letter-spacing: 1px;
-            color: #8f734f;
+            color: #8c704e;
             text-transform: uppercase;
         }
         
@@ -284,18 +283,14 @@
             letter-spacing: 0.5px;
         }
         
-        .location-card {
-            animation: pulseCard 2.6s ease-in-out infinite;
-        }
-        
         .location-card.revealed {
-            animation: revealPop 0.65s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+            animation: revealPop 0.5s ease-out both;
         }
         
         .location-pin {
             display: inline-block;
             margin-right: 6px;
-            animation: bouncePin 1.2s ease-in-out infinite;
+            animation: bouncePin 1.2s ease-in-out 2;
         }
         
         canvas {
@@ -309,7 +304,7 @@
         .footer {
             padding: 30px 40px;
             text-align: center;
-            background: #f9efd9;
+            background: #f7eddd;
             font-size: 12px;
             color: #8e7656;
             border-top: 1px solid var(--line-soft);
@@ -370,29 +365,19 @@
         }
         
         @keyframes shimmer {
-            0%, 70% { transform: translateX(-120%); }
+            0%, 80% { transform: translateX(-120%); }
             100% { transform: translateX(120%); }
         }
         
-        @keyframes pulseCard {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(226, 182, 122, 0.25); }
-            50% { box-shadow: 0 0 0 8px rgba(226, 182, 122, 0); }
-        }
-        
         @keyframes revealPop {
-            0% { transform: scale(0.9); opacity: 0.6; }
-            70% { transform: scale(1.04); opacity: 1; }
+            0% { transform: scale(0.96); opacity: 0.6; }
+            70% { transform: scale(1.015); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
         }
         
         @keyframes bouncePin {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-4px); }
-        }
-        
-        @keyframes floatSoft {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
         }
         
         .scroll-fade {
@@ -489,7 +474,7 @@
                                         <span class="countdown-label">Seconds</span>
                                     </div>
                                 </div>
-                                <div class="countdown-sub" id="countdownSub">Counting down to Saturday, April 27, 2027</div>
+                                <div class="countdown-sub" id="countdownSub">Counting down to Monday, April 27, 2026</div>
                             </div>
                         </div>
                         <canvas id="canvasDate"></canvas>
@@ -627,7 +612,7 @@
             }
         }
         
-        const weddingDate = new Date('2027-04-27T19:00:00');
+        const weddingDate = new Date('2026-04-27T19:00:00');
         let countdownTimer = null;
         
         function updateCountdown() {
